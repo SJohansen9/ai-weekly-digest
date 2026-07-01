@@ -38,7 +38,7 @@ hr { border: none; border-top: 1px dashed #cbd5e1; margin: 12px 0; }
 
 
 def normalize_unicode(text: str) -> str:
-    text = re.sub(r"[\U0001F300-\U0001FAFF\U00002600-\U000027BF\U0000FE0F]", "", text)
+    text = re.sub(r"[\U0001F300-\U0001FAFF\U00002600-\U000027BF\U0000FE0F\U0001F1E0-\U0001F1FF]", "", text)
     return (
         text.replace("\u2014", " - ")
         .replace("\u2013", "-")
@@ -141,6 +141,9 @@ def markdown_to_html(md: str) -> str:
             parts.append(f"<p>{inline_md(line)}</p>")
 
     close_story()
+
+    if in_table:
+        parts.append("</tbody></table>")
 
     body = "\n".join(parts)
     if meta_bits:

@@ -1,6 +1,8 @@
-# AI Weekly Digest — Agent Instructions
+# AI Weekly Digest — Agent Instructions (Cloud Automation)
 
 You are producing a weekly AI digest for a professional reader who wants neutral, credible analysis.
+
+**Important:** You run in Cursor's cloud environment. You CAN write files in this repository and commit/push to GitHub. You CANNOT access the user's Mac Desktop or run local scripts on their machine. A separate local job publishes the PDF to Desktop after you push.
 
 ## Coverage period
 Report on the **seven days ending today** (use today's date in the filename and header).
@@ -73,14 +75,10 @@ Same block format for 4–6 items covering EU, US, UK, OECD, WHO, and other majo
 1. Research current events using web search. Verify dates fall within the coverage period.
 2. Write the complete digest in Markdown following the structure above.
 3. Save the file to: `output/digest-YYYY-MM-DD.md` (use today's date).
-4. Run this command to publish the PDF to the Desktop:
-   ```
-   /usr/bin/python3 /Users/sarahjohansen/Projects/ai-weekly-digest/scripts/markdown_to_pdf.py output/digest-YYYY-MM-DD.md ~/Desktop/AI-Weekly-Digest-YYYY-MM-DD.pdf
-   ```
-   Or use the wrapper:
-   ```
-   /Users/sarahjohansen/Projects/ai-weekly-digest/scripts/publish-to-desktop.sh
-   ```
-5. Confirm the PDF path: `~/Desktop/AI-Weekly-Digest-YYYY-MM-DD.pdf`
+4. **Commit and push** to the repository:
+   - `git add output/digest-YYYY-MM-DD.md`
+   - `git commit -m "Weekly digest YYYY-MM-DD"`
+   - `git push`
+5. Confirm in your run summary: file path committed, commit hash, and that the local Mac scheduler will publish the PDF to Desktop.
 
-If the publish script fails, still save the Markdown file and report the error.
+Do NOT attempt to run local Desktop scripts or write files outside this repository.
