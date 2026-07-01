@@ -1,0 +1,6 @@
+output/*.html
+output/*.pdf
+output/launchd.log
+output/launchd.err
+output/test*.pdf
+.DS_Store
