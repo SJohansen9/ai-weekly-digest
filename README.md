@@ -1,6 +1,6 @@
 # AI Weekly Digest
 
-Weekly AI digest with impact assessment. Publishes a styled PDF to your Desktop.
+Weekly AI digest with impact assessment. Publishes a **Markdown file** to your Desktop.
 
 ## Quick test
 
@@ -8,16 +8,11 @@ Weekly AI digest with impact assessment. Publishes a styled PDF to your Desktop.
 ~/Projects/ai-weekly-digest/scripts/publish-to-desktop.sh
 ```
 
-Output: `~/Desktop/AI-Weekly-Digest-YYYY-MM-DD.pdf`
+Output: `~/Desktop/AI-Weekly-Digest-YYYY-MM-DD.md`
 
 ## One-time setup
 
-### 1. Python dependencies
-```bash
-python3 -m pip install --user -r ~/Projects/ai-weekly-digest/requirements.txt
-```
-
-### 2. GitHub repository
+### 1. GitHub repository
 Create **`ai-weekly-digest`** on GitHub, then push:
 
 ```bash
@@ -26,26 +21,27 @@ git remote add origin https://github.com/YOUR_USERNAME/ai-weekly-digest.git
 git push -u origin main
 ```
 
-### 3. Cursor Automation
-The Automations editor should open with **AI Weekly Digest** pre-filled:
+### 2. Cursor Automation
+In **Cursor → Automations → AI Weekly Digest**:
 
 1. Set **Repository** to your `ai-weekly-digest` GitHub repo
 2. Schedule: **Mondays 8:00 AM**
-3. Click **Save** and **Enable**
+3. Prompt: agent writes `output/digest-YYYY-MM-DD.md` and **git push**es
+4. Click **Save** and **Enable**
 
-### 4. Local backup scheduler (recommended)
-Ensures PDF reaches Desktop even if the cloud agent only commits Markdown:
+### 3. Local backup scheduler (recommended)
+Copies the latest digest Markdown to your Desktop every **Monday 8:45 AM**:
 
 ```bash
 ~/Projects/ai-weekly-digest/scripts/install-schedule.sh
 ```
 
-Runs every **Monday 8:45 AM** — pulls latest from git and publishes PDF.
-
 ## Files
 
 | File | Purpose |
 |------|---------|
-| `scripts/markdown_to_pdf.py` | Python PDF generator (fpdf2) |
-| `scripts/publish-to-desktop.sh` | Publish latest digest to Desktop |
+| `scripts/publish-to-desktop.sh` | Copy latest digest `.md` to Desktop |
 | `templates/DIGEST_PROMPT.md` | Agent instructions |
+| `output/digest-YYYY-MM-DD.md` | Weekly digest source files |
+
+See `AUTOMATION.md` for why the cloud + local split is needed.

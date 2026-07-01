@@ -79,6 +79,6 @@ Same block format for 4–6 items covering EU, US, UK, OECD, WHO, and other majo
    - `git add output/digest-YYYY-MM-DD.md`
    - `git commit -m "Weekly digest YYYY-MM-DD"`
    - `git push`
-5. Confirm in your run summary: file path committed, commit hash, and that the local Mac scheduler will publish the PDF to Desktop.
+5. Confirm in your run summary: file path committed and commit hash.
 
-Do NOT attempt to run local Desktop scripts or write files outside this repository.
+A local scheduler on the user's Mac copies the Markdown file to their Desktop after you push. Do NOT attempt to write files outside this repository.
