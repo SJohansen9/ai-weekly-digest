@@ -11,4 +11,4 @@ UID_NUM=$(id -u)
 launchctl bootout "gui/${UID_NUM}/com.sarahjohansen.ai-weekly-digest" 2>/dev/null || true
 launchctl bootstrap "gui/${UID_NUM}" "$PLIST_DST" 2>/dev/null || launchctl load "$PLIST_DST"
 
-echo "Installed: Mondays 8:45 AM -> publish PDF to Desktop"
+echo "Installed: Mondays 8:45 AM -> copy digest Markdown to Desktop"
